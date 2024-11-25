@@ -1,0 +1,142 @@
+# Diretórios do ambiente virtual
+venv/
+env/
+.Transporte/
+
+# Arquivos de configurações do IDE
+.idea/
+.vscode/
+
+# Arquivos de cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Arquivos de depuração e dados
+debug.log
+
+# Arquivos de pacotes
+*.egg
+*.egg-info/
+dist/
+build/
+*.wheel
+
+# Arquivos de teste
+.coverage
+*.cover
+.coverage.*
+nosetests.xml
+coverage.xml
+*.py,cover
+
+# Arquivos de configuração de pytest
+.cache/
+
+# Dados gerados por Jupyter/IPython
+.ipynb_checkpoints
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de banco de dados local
+*.sqlite3
+*.db
+
+# Arquivos de chaves ou senhas
+*.pem
+*.key
+
+# Arquivos compactados
+*.gz
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+
+# Arquivos de pacotes criados localmente
+pip-wheel-metadata/
+# Node.js e npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Diretórios de build
+dist/
+build/
+coverage/
+
+# Arquivos temporários
+*.tmp
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Configurações de IDEs
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Configurações do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Cache do npm/yarn
+.npm/
+.yarn/
+
+# Configurações de cache do Vue CLI
+.cache/
+
+# Configurações do Babel
+*.babelrc
+*.babelrc.js
+*.babelrc.json
+babel.config.js
+
+# Configurações do ESLint
+.eslintcache
+
+# Configurações do TypeScript
+*.tsbuildinfo
+
+# Configurações de teste
+*.spec.js
+*.test.js
+coverage/
+
+# PWA
+service-worker.js
+
+# Diretórios de deploy e CI/CD
+firebase-debug.log
+firebase-debug.*
+.env.local
+.env.*.local
+.env
+
+# Arquivos de builds criados
+*.gz
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+
+# Logs de depuração
+debug.log
