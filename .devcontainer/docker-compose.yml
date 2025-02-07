@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  app:
+    build:    
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    container_name: transport_api 
+    volumes:
+      - ..:/workspace
+    ports:
+      - "8000:8000"
+    networks:
+      - transport_network
+networks:
+  transport_network:
+volumes:
+  postgres_data:
