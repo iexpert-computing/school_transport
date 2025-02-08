@@ -1,0 +1,75 @@
+<body>
+    <div id="map" style="width: 100%; height: 500px;"></div>
+
+    <!-- Botão para buscar a rota -->
+    <button onclick="fetchRoute()" style="margin: 10px; padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer; border-radius: 5px;">
+        Buscar Rota
+    </button>
+
+    <script>
+        mapboxgl.accessToken = 'SUA_CHAVE_MAPBOX';
+        let map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-46.633308, -23.55052], // Corrigindo para ordem [lng, lat]
+            zoom: 12
+        });
+
+        async function fetchRoute() {
+            try {
+                let response = await fetch("http://127.0.0.1:8000/rota", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        origin: [-23.55052, -46.633308],
+                        destinations: [
+                            [-23.56168, -46.62529],
+                            [-23.54747, -46.63611],
+                            [-23.56272, -46.65095]
+                        ]
+                    })
+                });
+
+                let data = await response.json();
+                console.log("Rota recebida:", data);
+
+                if (map.getSource("route")) {
+                    map.removeLayer("route-layer");
+                    map.removeSource("route");
+                }
+
+                if (data.geometry) {
+                    map.addSource("route", {
+                        "type": "geojson",
+                        "data": {
+                            "type": "Feature",
+                            "properties": {},
+                            "geometry": data.geometry
+                        }
+                    });
+
+                    map.addLayer({
+                        "id": "route-layer",
+                        "type": "line",
+                        "source": "route",
+                        "layout": {
+                            "line-join": "round",
+                            "line-cap": "round"
+                        },
+                        "paint": {
+                            "line-color": "#ff6600",
+                            "line-width": 5
+                        }
+                    });
+
+                    // Ajustar a visualização para a rota
+                    let bounds = new mapboxgl.LngLatBounds();
+                    data.geometry.coordinates.forEach(coord => bounds.extend(coord));
+                    map.fitBounds(bounds, { padding: 50 });
+                }
+            } catch (error) {
+                console.error("Erro ao buscar a rota:", error);
+            }
+        }
+    </script>
+</body>

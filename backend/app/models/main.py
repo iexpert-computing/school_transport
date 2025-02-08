@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from backend.app.routers import alunos, gestores, veiculos, ponto_embarque, manutencao
-from backend.app.routers import condutores, rotas, monitoramento, contratos, empresas
+from backend.app.routers import alunos, gestores, rota_otimizada, veiculos, ponto_embarque, manutencao
+from backend.app.routers import condutores, monitoramento, contratos, empresas
 
 import sys
 import os
@@ -13,7 +13,7 @@ app = FastAPI()
 app.include_router(alunos.router, prefix="/alunos", tags=["alunos"])
 app.include_router(gestores.router)
 app.include_router(monitoramento.router)
-app.include_router(rotas.router, prefix="/rotas", tags=["Rotas"])
+app.include_router(rota_otimizada.router, prefix="/rotas", tags=["Rotas"])
 app.include_router(contratos.router)
 app.include_router(empresas.router, prefix="/empresas", tags=["empresas"])
 app.include_router(veiculos.router, prefix="/veiculos", tags=["veiculos"])

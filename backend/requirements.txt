@@ -1,3 +1,5 @@
 fastapi
 uvicorn
 sqlalchem
+requests
+pydantic
