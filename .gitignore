@@ -1,6 +1,7 @@
 # Diretórios do ambiente virtual
 venv/
 env/
+.env/
 .Transporte/
 
 # Arquivos de configurações do IDE
